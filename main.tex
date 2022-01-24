@@ -1,0 +1,74 @@
+\documentclass{article}
+\usepackage[style=authoryear, 
+backend=biber, 
+giveninits=true,
+uniquelist = false, 
+uniquename=init,
+isbn=false, 
+maxcitenames=3,
+dashed=false, 
+maxbibnames=999,
+doi=false,
+url=false]{biblatex}
+\usepackage{hyperref}
+\usepackage{float}
+% importing the library
+\addbibresource{8_meeting.bib}
+\DeclareDelimFormat{nameyeardelim}{\addcomma\space}
+
+%\setlength{\bibhang}{0pt}
+
+\DeclareNameAlias{sortname}{family-given}
+
+\renewcommand*{\labelnamepunct}{\addspace}
+
+\DeclareFieldFormat
+  [article,inbook,incollection,inproceedings,patent,thesis,unpublished]
+  {title}{#1}
+
+\DeclareFieldFormat{titlecase}{\MakeSentenceCase*{#1}}
+
+\renewbibmacro*{in:}{%
+  \ifentrytype{article}
+    {\setunit{\addcomma\space}}
+    {\printtext{\bibstring{in}\intitlepunct}}}
+
+\DeclareFieldFormat{journaltitlecase}{#1}
+
+\renewbibmacro*{journal}{%
+  \ifboolexpr{
+    test {\iffieldundef{journaltitle}}
+    and
+    test {\iffieldundef{journalsubtitle}}
+  }
+    {}
+    {\printtext[journaltitle]{%
+       \printfield[journaltitlecase]{journaltitle}%
+       \setunit{\subtitlepunct}%
+       \printfield[journaltitlecase]{journalsubtitle}}}}
+
+\renewbibmacro*{volume+number+eid}{%
+  \printfield{volume}%
+  \setunit{\addcomma\space}%
+  \printfield{eid}}
+
+\DeclareFieldFormat[article,periodical]{volume}{\mkbibbold{#1}}% volume of a journal
+
+\DeclareFieldFormat{pages}{#1}
+
+\begin{document}
+
+\include{front_page}
+
+\input{citations}
+\input{Empirical}
+
+
+\input{conclusions}
+
+
+
+
+\newpage
+\printbibliography
+\end{document}
