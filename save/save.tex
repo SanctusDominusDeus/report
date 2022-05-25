@@ -1,0 +1,52 @@
+
+Our objective is to explore the impact of shipping costs fluctuations on different firm variables. Using the sample built by \textcite{barrot_globalization_2019} and Compustat firm level information. We estimate the following specification at the firm-year level for the 133 different industries:  
+
+\[Y_{ijt} = \beta_{j0} + \beta_{j1}\Delta SC_{it} + \beta_{j2}\Delta GDP_{it} +\alpha_{i} + \delta_{t} +u_{ijt} \quad for\quad j\in \{2000,\dots,3999\}\]
+
+\begin{equation}
+ Y_{i,j,t} = \beta_{0} + \beta_{1}\Delta SC_{j,t} +u_{i,j,t}   
+\end{equation}
+
+\begin{equation}
+ Y_{i,j,t} = \beta_{0} + \beta_{1}\Delta SC_{j,t}+\beta_{2}\Delta GDP_{t}+\alpha_{i}+u_{i,j,t}   
+\end{equation}
+
+where $Y_{ijt}$ is the changes of sales to total assets, the inventory to total assets, the gross profit margin or the net profit margin, depending on which firm level variable we want to test. On the right hand side, we have our variable of interest the $\Delta SC$ estimating the sensitivity of the firm variables to it. Also, we added the GDP growth to proxy the business cycle and firm and time fixed effects to control for unobserved characteristics.  
+
+The following four plots show the values of the relevant beta against the average SC for each industry. We can see that there is not any major trend throughout the different shipping costs levels. From the lower to the upper part the beta fluctuates around zero, 
+with its sign constantly changing. This can lead us to concluded that our variable of interest captures a different behaviour than the one used by \textcite{barrot_globalization_2019}.
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[width=4.5in]{beta_sales.eps}
+	\caption{SC relation with $\beta^{\Delta SC}_{t}$ for $\Delta$ Sales/Total assets by industry.}
+	\label{panel_sales}
+\end{figure}
+
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[width=4.5in]{beta_inv.eps}
+	\caption{SC relation with $\beta^{\Delta SC}_{t}$ for $\Delta$ inventory/total assets by industry.}
+	\label{panel_inv}
+\end{figure}
+
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[width=4.5in]{beta_gross_profit.eps}
+	\caption{SC relation with $\beta^{\Delta SC}_{t}$ for $\Delta$ gross Profit Margin by industry.}
+	\label{panel_gross}
+\end{figure}
+
+\newpage
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[width=4.5in]{beta_profit.eps}
+	\caption{SC relation with $\beta^{\Delta SC}_{t}$ for $\Delta$ Net Profit Margin by industry.}
+	\label{panel_profit}
+\end{figure}
+
+The tables \ref{table:tables} and \ref{table:tables2} reported the coefficients from that regressions that are significant and its respective industry and average SC. Again, we verify the beta's changing sign for the bottom and top part of the SC distribution. Reinforcing the idea that this variable catches a different behaviour. 
+\input{tables}
+\input{tables2}

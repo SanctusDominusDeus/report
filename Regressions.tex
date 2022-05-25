@@ -1,0 +1,35 @@
+\section{Regressions}%\label{qmod}
+Our goal is to estimate the sensitivity between the shipping cost variation and the firm characteristics. We estimate the following OLS model between the different firm-level variables $Y_{i,j,t}$ for each period against the shipping cost first difference for the same period, $\Delta SC_{j,t}$:
+
+\begin{equation}
+\label{eq:1}
+ Y_{i,j,t} = \beta_{0} + \beta_{1}\Delta SC_{j,t} +u_{i,j,t}   
+\end{equation}
+
+Where $Y_{i,j,t}$ is the changes of sales to total assets, the inventory to total assets, the gross profit margin, or the net profit margin. On the right hand side, we have our coefficient of interest the $\beta_{1}$ estimating the sensitivity of our dependent variable to the $\Delta SC_{j,t}$. 
+
+The columns 1, 4, 7, and 10 on the Table \ref{table:ols_panel_reg} report our baseline. From the four dependent variables, we only obtain statistically significant coefficient for our variable of interest when regressed against the gross profit margin. The coefficient of 0.018 means that 1\% increase in the shipping cost leads to an increase of 0.018\% of the gross profit margin. 
+
+However, the specification in the Equation \ref{eq:1} makes it difficult to correctly measure $\beta_{1}$. First, the dependent variable will differ from company to company, for example, will depend on their operations system, managing guidelines and culture. The condition $E[u_{t}|\Delta SC_{t}]=0$ will not be satisfied, because the error term includes unobserved firm-level characteristics. Second, this regression may suffer from the omitted variable bias. As both sides of the Equation \ref{eq:1} could be affected by the fluctuations on the economy, the business cycle, inflating the actual impact that our main variable has on the dependent ones.
+
+To solve the first problem identified on the previous paragraph, we run panel regression with firm fixed effects. This will control the unobserved firm specific time-invariant characteristics. Relative to the second, we propose to add the GDP growth to absorb the effects of the business cycles. This led us to run the following regression: 
+\begin{equation}
+\label{eq:2}
+ Y_{i,j,t} = \beta_{0} + \beta_{1}\Delta SC_{j,t}+\beta_{2}\Delta GDP_{t}+\alpha_{i}+u_{i,j,t}   
+\end{equation}
+
+The specification is similar to the Equation \ref{eq:1}, the difference lays on the added firm-level analysis that enable us to implement the firm fixed effects and the GDP growth to overcome the omitted variable bias.
+
+
+\newpage
+\begin{landscape}
+\input{ols_panel_regressions}
+\end{landscape}
+
+Table \ref{table:ols_panel_reg} columns 2, 5, 8 and 11 presents the results for the regressions with firm fixed effects. The coefficients size changes with the new setting, confirming the bias on our initial estimations. It is worth mention that the betas signs did not change, it seems that our baseline is correctly estimating the impact direction. However, we still only get significance for the gross profit margin regression. Also, in the remaining columns we add the control for business cycle. This exclusively affects the sensitivity estimation for the net profit margin. Again, we only get statistical significance for the gross profit margin regression. The coefficient of 0.024 implies that after controlling for unobserved firm specific characteristics and business cycle, an 1\% increase in shipping cost will cause an 0.024\% increase of the gross profit margin.
+
+Comparing the coefficients between different specification we can see that their signals do not change, and the coefficient of interest is significant for all 3 models relatively to the gross profit margin. This could reveal that our model seems to capture the right impact direction, but when we look at the significance and explanatory power of our regression, we conclude that the right framework it stills yet to come. 
+
+From this initial empirical analysis, we cannot draw solid conclusions, as the $R^{2}$ is small for all the regressions and statistically significant coefficients are only obtained when using the gross profit margin. On the other hand, the sign consistent among different framework, may start to lead us to some conclusions relative to the effect direction.
+
+

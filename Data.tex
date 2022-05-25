@@ -1,0 +1,47 @@
+
+\section{Data}%\label{qmod}
+
+In this section, we describe our main data sources and the variables we use and construct on our analysis. We provide in detail the databases, variables definitions and transformations required to replicate this study. 
+
+\subsection{Shipping cost}
+
+Our goal is to estimate the firm’s fundamentals sensitivity to the changes on the supply chain pressures. This will allow us to build long-short stock portfolios and test if there is a risk premium for the supply chain reliability. If so, this shows that the stock market automatically can discipline the reliability externality. 
+
+As previous studies \textcite{hummels_global_2008,hummels_transportation_2007,bradford_extent_2005}, we proxy this variable with the \textit{ad valorem} value between the Cost-Insurance-Freight\footnote{International shipping nomenclature when it the responsibility of the seller to cover the shipping cost, insurance of the customer’s order. The legal responsibility of the supplier ends on the destination port.}  and the Free-on-Board\footnote{International shipping term when it the responsibility of the buyer to pay the transportation costs and assume the losses of any damaged good during the transportation. The legal responsibility of the supplier ends on the departure port.}  at the product level for US importations. These metrics are compiled by the US Census Bureau from the customs records for transactions with value superior to \$2,500 per commodity. Also, these reports denote the mode of transport. Allowing us to select only importations by sea. We retrieve this data from \textcite{feenstra_us_1996} from 1974 to 1988, and the remaining of the sample we get it through Peter Schott’s website\footnote{\href{https://sompks4.github.io/sub_data.html}{https://sompks4.github.io/sub\_data.html}}  \parencite{schott_relative_2007} from 1989 to 2014.
+
+This annually product-level data is aggregated by year and Standard Industrial Classification (SIC code). This will enable us to later link the transportation cost to the company’s stock market information at the industry-level. After this step, we follow \textcite{barrot_globalization_2019} approach that focuses on manufacturing industries (SIC between 2000 and 3999), without this assumption our results would be bias, because physical goods require legal fillings of import transactions when going through US customs, while others the same does not apply. Resulting in different compiling processes for the trade statistics. Additionally, it was been showed that those sectors are more expose to the global supply chains \parencite{ersahin_supply_2022}. One final transformation, is to calculate the first difference for the shipping cost, using the resulting values as our main variable of interest. This first difference analysis gives more weight to the small variations, helping us to focus on the supply chain pressure build ups, instead of import competition or inputs complexity. Finally, we drop the observations when the shipping cost first difference is missing. 
+
+Table \ref{table:sc_summary} shows the summary statistics for our main variable of interest, the change of shipping cost. Before and after winsorizing at the 1\% level. We can see the impact of outliers before this transformation, especially the bias towards the right-hand side of the distribution. After treating the extreme values, the mean is 0.004 with a significant standard deviation of 0.197, that is reflected on wide range between the first and last percentile (1.481, significant larger considering that is a first difference variable). 
+
+Consistent with previous studies \textcite{barrot_globalization_2019}, our analysis confirms the persistence of the shipping cost. Nevertheless, after applying the first difference, this is no longer true. The table \ref{table:sc_quintile} confirms it, as the transition across quintiles is around one fifth. Additionally, the Wooldridge test for autocorrelation (Appendix \ref{sec:appendix}) shows that our transformation solves the autocorrelation problem. 
+
+Overall, our variable of interest varies within sector and across time. This will aid us to measure each sector’s sensitivity to the global supply chain and its risk premium. 
+
+\subsection{Stock Market}
+
+The firm’s stock market information is downloaded from the Center for Research in Security Prices (CRSP) monthly file, and we use Compustat for the accounting information. We focus on common-ordinary shares (item \textit{shrcd} equal to 10 or 11) traded on the AMEX, NASDAQ, or NYSE (item \textit{exchcd} equal to 1, 2, or 3) for our sample period.
+
+The four-digits SIC code is the connecting point between the shipping cost and the firm-level information. We compile it, from the two databases mention above. The anchor for this variable is the Compustat SIC code in the previous years (item \textit{sich}), when this one is missing, we use the backfilled Compustat SIC (item \textit{sic}). After these steps, the existing gaps are filled with the CRSP industry code (item \textit{siccd}). To expurgate the impact of micro-cap on our analysis, we exclude firms with the market capitalization below the 10th percentile relative to the NYSE/AMEX universe. For our sample period, 1975 to 2014, we end up with 39,268 yearly observations for 4,214 different companies. 
+
+We retrieve firm characteristics from Compustat Fundaments Annual files that is merge with the previous dataset by firm identifiers (item \textit{permno}). We obtain this though linking the CRSP (using item \textit{ncusip}) to the Compustat (using the first 8 digits of the item \textit{cusip}). After, we get the sales (item \textit{sale}) that we divide by the total assets (item \textit{at}) to control for the company size. For the inventory we download the item \textit{invt} (total inventories) also pondered by the firm size proxy. The gross profit margin is calculated by the markup between the gross profit (item \textit{gp}) and the total revenue (item \textit{revt}). Finally, the net profit margin is the ratio between net income (item \textit{ni}) and the total revenue (item \textit{revt}). Following the previous section approach, we apply the first difference for the firm-level characteristics. And all these variables are winsorized at the first and last percentile.
+
+The table \ref{table:firm_summ} shows the summary statistics for the firm-level variables after the merge with the shipping cost dataset. During our sample period the mean (median) pondered sales growth is 8.3\% (0.5\%), this is significantly different from the \textcite{ersahin_supply_2022} empirical study, but could\\
+\newpage
+\begin{landscape}
+\input{SC_summary}
+%\end{landscape}
+%\begin{landscape}
+\input{SC_persistence}
+\end{landscape}
+
+
+\begin{landscape}
+\mbox{}\vfill
+\input{firm_level_variables_summary_stats}
+\vfill
+\end{landscape}
+
+
+be due to their different sample selection procedure (not exclusively focus on manufacturing). For the inventory divided by the total assets the mean (median) is 3.8\% (-1.1\%). The growth rate of the gross profit margin has a mean (median) of 1.0\% (0.1\%). Finally, the mean (median) of the net profit margin first difference is -19.6\% (-9.4\%).
+
+The firm-level accounting information will allow us to understand the reaction of each firm to the fluctuations on the shipping cost. Showing us the average impact of the supply chain pressure variation at the company level.  

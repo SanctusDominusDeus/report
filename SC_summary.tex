@@ -1,0 +1,27 @@
+\renewcommand{\arraystretch}{1.15}
+\begin{table}[htbp]\centering
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+
+
+\captionsetup{width=19cm,justification=justified,labelsep = newline}
+\begin{subtable}
+    \centering
+    \caption{\label{table:sc_summary}\textbf{Summary statistics}}
+\end{subtable}
+
+\captionsetup{labelformat=empty}
+\caption{
+%\label{table:sc_summary}\textbf{Summary statistics}\\
+The table shows the summary statistics for the industry-year shipping cost variation for the manufacturing industries traded on the AMEX, NASDAQ, or NYSE from 1974 to 2014. These variables are the change of the ratio between CIF (cost-insurance-freight) to the FOB (free-on-board) at the industry level. The shipping cost are compiled by the US Census Bureau and downloaded from the Peter Schott’s website. The second variable is winsorized at the 1\% level.
+}
+
+\begin{tabular}{l*{1}{cccccccccc}}
+\hline
+                    %&\multicolumn{10}{c}{}                                                                                                            \\
+                    &       count&        mean&          sd&         min&          p1&         p50&         p99&         max&    skewness&    kurtosis\\
+\hline
+$\Delta SC$     &       16400&     422.681&   54122.833&      -1.000&      -0.526&      -0.015&       0.955& 6931104.500&     128.051&   16398.000\\
+$\Delta SC$ Winsorized      &       16400&       0.004&       0.197&      -0.526&      -0.526&      -0.015&       0.955&       0.955&       1.548&       9.614\\
+\hline
+\end{tabular}
+\end{table}

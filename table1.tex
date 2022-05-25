@@ -1,0 +1,46 @@
+%%%% for the space on the table
+
+\renewcommand{\arraystretch}{1.3}
+\begin{table}[htbp!]\centering
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+
+\caption{Summary statistics for the rolling regression (m=10).}
+\label{table:summ_rolling}
+\begin{tabular}{l*{1}{cccccc}}
+\hline\hline
+                    &\multicolumn{6}{c}{}                                                         \\
+                    &       Obs.&        Mean&          Std. Dev.&          p1&         p50&         p99\\
+\hline
+\textbf{$\Delta$ Sales/Turnover}&&&&&&\\
+$\beta^{\Delta SC}$             &        4012&       0.012&       0.658&      -2.020&       0.009&       1.503\\
+\textit{t-statistic}    &        4010&       1.189&       1.238&       0.022&       0.901&       4.890\\
+$R^{2}$           &        4012&       0.059&       0.082&       0.000&       0.027&       0.384\\
+
+\hline
+%%%%
+%\textbf{$\Delta$ Sales/turnover/at}&&&&&&\\
+%$\beta^{\Delta SC}$             &       12528&      -0.006&       1.347&      -3.182&       0.000&       3.020\\
+%\textit{t-statistic}     &       12460&       1.378&       1.666&       0.018&       0.997&       6.958\\
+%$R^{2}$           &       12528&       0.110&       0.140&       0.000&       0.054&       0.616\\
+%*
+%\hline
+%%%%%
+\textbf{$\Delta$ Inventory/Total Assets}&&&&&&\\
+$\beta^{\Delta SC}$            &        3797&       0.041&       0.450&      -1.412&       0.027&       1.291\\
+\textit{t-statistic}     &        3795&       1.133&       1.100&       0.021&       0.849&       5.110\\
+$R^{2}$           &        3797&       0.053&       0.074&       0.000&       0.024&       0.338\\
+\hline
+\textbf{$\Delta$ Gross Profit Margin}&&&&&&\\
+$\beta^{\Delta SC}$             &        4014&      -0.018&       0.534&      -1.597&      -0.011&       1.780\\
+\textit{t-statistic}     &        4012&       1.245&       1.405&       0.019&       0.996&       4.873\\
+$R^{2}$           &        4014&       0.062&       0.082&       0.000&       0.030&       0.386\\
+\hline
+\textbf{$\Delta$ Net Profit Margin}&&&&&&\\
+$\beta^{\Delta SC}$             &        4014&       0.342&       8.272&     -20.568&      -0.013&      21.958\\
+\textit{t-statistic}     &        4012&       1.072&       0.883&       0.027&       0.925&       3.748\\
+$R^{2}$           &        4014&       0.054&       0.079&       0.000&       0.022&       0.352\\
+\hline\hline
+\end{tabular}
+\end{table}
+
+

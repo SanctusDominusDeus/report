@@ -1,0 +1,45 @@
+\renewcommand{\arraystretch}{1.15}
+\setcounter{table}{3}
+
+\begin{table}[htbp]\centering
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+
+
+
+\captionsetup{width=19cm,justification=justified,labelsep = newline}
+\begin{subtable}
+    \centering
+    \caption{\label{table:ols_panel_reg}\textbf{Firm-level variables sensitivity to the $\Delta SC$}}
+\end{subtable}
+
+\captionsetup{labelformat=empty}
+
+\caption{
+%\label{table:ols_panel_reg}\textbf{Firm-level variables sensitivity to the $\Delta SC$.}\\
+The table presents results of firm-year regressions of the firm’s fundamental on the shipping cost variation. We use as dependent variable: the sales divided by total assets (columns (1) to (3)); the inventories pondered by total assets (columns (4) to (6)); the ratio between gross profit and total revenue (gross profit margin) in the columns (7) to (9); and net income normalized by total revenue, columns (10) to (12). The shipping cost first difference is reported at the industry-year level. Some regressions include controls for unobserved time-invariant firm characteristics and/or business cycle. The standard errors are reported in parenthesis with the significance level at the 10\% (*), 5\% (**), and 1\% (***). All the variables are winsorized at the first and last percentile. The sample period is 1974 to 2014.}
+
+%This was the way done before without space between \cline
+%\begin{tabular}{l*{12}{cccccccccc}}
+\begin{small}
+\begin{tabular}{@{\extracolsep{4pt}}ccccccccccccc@{}}
+%The one above adds spaces between \clines, but i need to add more columns to it
+
+\hline
+Dep. Var  &\multicolumn{3}{c}{Sales}   &\multicolumn{3}{c}{Inventory}   &\multicolumn{3}{c}{Gross Profit Margin} &\multicolumn{3}{c}{Net Profit Margin}\\
+ \cline{2-4} \cline{5-7} \cline{8-10} \cline{11-13}
+                    &\multicolumn{1}{c}{(1)}   &\multicolumn{1}{c}{(2)}   &\multicolumn{1}{c}{(3)}   &\multicolumn{1}{c}{(4)}   &\multicolumn{1}{c}{(5)}   &\multicolumn{1}{c}{(6)}   &\multicolumn{1}{c}{(7)}   &\multicolumn{1}{c}{(8)}   &\multicolumn{1}{c}{(9)}   &\multicolumn{1}{c}{(10)}   &\multicolumn{1}{c}{(11)}   &\multicolumn{1}{c}{(12)}   \\
+\hline
+$\Delta SC$                  &      -0.016   &      -0.003   &      -0.003   &      -0.010   &      -0.011   &      -0.011   &       0.018** &       0.024** &       0.024** &      -0.041   &      -0.042   &      -0.037   \\
+                    &     (0.010)   &     (0.010)   &     (0.010)   &     (0.007)   &     (0.008)   &     (0.008)   &     (0.009)   &     (0.009)   &     (0.009)   &     (0.070)   &     (0.072)   &     (0.072)   \\
+$\Delta GDP$          &               &               &      -0.127   &               &               &      -0.207** &               &               &       0.111   &               &               &       3.623***\\
+                    &               &               &     (0.119)   &               &               &     (0.094)   &               &               &     (0.117)   &               &               &     (0.906)   \\
+Firm FE        &       NO  &      YES  &       YES   &      NO  &      YES  &       YES   &       NO  &      YES  &       YES  &     NO  &      YES  &       YES   \\
+\hline
+Observations        &       37150   &       37150   &       37150   &       34326   &       34326   &       34326   &       37017   &       37017   &       37017   &       37017   &       37017   &       37017   \\
+\(R^{2}\)           &       0.000   &       0.000   &       0.000   &       0.000   &       0.000   &       0.000   &       0.000   &       0.000   &       0.000   &       0.000   &       0.000   &       0.000   \\
+\hline
+
+\end{tabular}
+\end{small}
+\end{table}
+

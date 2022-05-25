@@ -1,0 +1,52 @@
+%%%% for the space on the table
+
+\renewcommand{\arraystretch}{1.3}
+\begin{table}[htbp!]\centering
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+
+\caption{Rolling regression (m=10) with $\Delta SC$ and AR process.}
+\label{table:test}
+\begin{tabular}{l*{1}{cccccc}}
+\hline\hline
+                    &\multicolumn{6}{c}{}                                                         \\
+                    &       Obs.&        Mean&          Std. Dev.&          p1&         p50&         p99\\
+\hline
+\textbf{$\Delta$ Sales/Total Assets}&&&&&&\\
+
+$\beta^{\Delta SC}_{t}$            &    10331&       0.022&       1.090&      -3.037&      -0.005&       3.384\\
+\textit{t-statistic}      &       10311&      -0.111&       2.339&      -6.824&      -0.033&       5.631\\
+$\beta^{\Delta GDP}_{t}$    &       10331&      -0.264&       9.188&     -32.382&      -0.006&      24.966\\
+\textit{t-statistic} &    10331&      -0.002&       2.081&      -5.895&      -0.003&       5.709\\
+$\beta^{\Delta Sales/Total Assets}_{t-1}$       &         10331&      -0.170&       0.379&      -1.017&      -0.183&       0.788\\
+\textit{t-statistic} &            10331&      -0.768&       1.882&      -6.096&      -0.722&       4.059\\
+$R^{2}$         &       10331&       0.349&       0.208&       0.018&       0.322&       0.857\\
+$\beta^{\Delta SC}_{t}$ \textit{t-statistic} $<-2$ &         1281&       0.147&       0.000&       0.147&       0.147&       0.147\\
+$\beta^{\Delta SC}_{t}$ \textit{t-statistic} $>2$    &       1111&       0.136&       0.000&       0.136&       0.136&       0.136\\
+
+\hline
+
+\textbf{$\Delta$ Inventory/Total Assets}&&&&&&\\
+$\beta^{\Delta SC}_{t}$             &     9507&       0.039&       1.185&      -3.142&       0.001&       3.550\\
+\textit{t-statistic}      &         9487&       0.004&       2.167&      -5.962&       0.011&       5.645\\
+$\beta^{\Delta GDP}_{t}$      &       9507&      -0.560&       7.775&     -26.416&      -0.115&      21.734\\
+\textit{t-statistic} &      9507&      -0.162&       2.143&      -6.715&      -0.049&       5.269\\
+$\beta^{\Delta Inventory/Total Assets}_{t-1}$       &          9507&      -0.197&       0.363&      -1.034&      -0.200&       0.675\\
+\textit{t-statistic} &         9507&      -0.887&       1.737&      -5.954&      -0.788&       3.075\\
+$R^{2}$        &     9507&       0.344&       0.206&       0.019&       0.318&       0.846\\
+$\beta^{\Delta SC}_{t}$ \textit{t-statistic} $<-2$ &        999&       0.137&       0.000&       0.137&       0.137&       0.137\\
+$\beta^{\Delta SC}_{t}$ \textit{t-statistic} $>2$      &       1125&       0.141&       0.000&       0.141&       0.141&       0.141\\
+\hline
+\textbf{$\Delta$ Gross Profit Margin}&&&&&&\\
+$\beta^{\Delta SC}_{t}$           &      10317&       0.043&       1.379&      -3.665&       0.011&       4.426\\
+\textit{t-statistic}     &        10297&       0.172&       2.195&      -5.415&       0.149&       5.848\\
+$\beta^{\Delta GDP}_{t}$        &        10317&       0.454&      10.572&     -37.356&       0.225&      35.017\\
+\textit{t-statistic} &        10317&       0.249&       1.971&      -4.938&       0.234&       5.524\\
+$\beta^{\Delta Gross Profit Margin}_{t-1}$           &        10317&      -0.131&       0.410&      -1.040&      -0.137&       0.853\\
+\textit{t-statistic} &       10317&      -0.564&       2.102&      -5.685&      -0.551&       4.362\\
+$R^{2}$       &      10317&       0.338&       0.208&       0.016&       0.308&       0.841\\
+$\beta^{\Delta SC}_{t}$ \textit{t-statistic} $<-2$ &       970&       0.122&       0.000&       0.122&       0.122&       0.122\\
+$\beta^{\Delta SC}_{t}$ \textit{t-statistic} $>2$&       1272&       0.145&       0.000&       0.145&       0.145&       0.145\\
+
+\hline\hline
+\end{tabular}
+\end{table}

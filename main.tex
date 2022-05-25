@@ -12,11 +12,21 @@ doi=false,
 url=false]{biblatex}
 \usepackage{hyperref}
 \usepackage{float}
+\usepackage{longtable}
 % importing the library
 \addbibresource{8_meeting.bib}
 \DeclareDelimFormat{nameyeardelim}{\addcomma\space}
 
+\usepackage{lscape} 
+
+\usepackage{graphicx} 
+
 %\setlength{\bibhang}{0pt}
+%\usepackage{subcaption}=>>THIS IS THE SOLUTION FOR THE BUGS, RIGHT NOW I DON'T HAVE THE TIME FOR IT
+\usepackage{caption}
+% set numbering style
+\renewcommand{\thetable}{\Roman{table}}
+
 
 \DeclareNameAlias{sortname}{family-given}
 
@@ -60,15 +70,22 @@ url=false]{biblatex}
 
 \include{front_page}
 
-\input{citations}
-\input{Empirical}
+
+\input{Introduction}
+\input{Data}
+\input{Regressions}
 
 
-\input{conclusions}
 
-%just to visualise some tables
-\newpage
-\input{table2}
+%to visualize tables
+%\newpage
+%\input{AC_wooldridge}
+%end
+
+
+
+
+
 
 
 %%%%%%%%%%%%%%%%%%
@@ -77,4 +94,12 @@ url=false]{biblatex}
 
 \newpage
 \printbibliography
+
+\newpage
+\appendix
+
+\section{Appendix}
+\label{sec:appendix}
+%\chapter{\textbf{\huge{Appendix A}}}
+\input{AC_wooldridge}
 \end{document}
